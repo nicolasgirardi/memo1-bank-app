@@ -65,4 +65,14 @@ public class AccountService {
         return account;
     }
 
+    public Account transaction(Long cbu, Double sum) {
+        Account account = accountRepository.findAccountByCbu(cbu);
+        if( account.getBalance() + sum < 0)
+            throw new InsufficientFundsException("Insufficient funds");
+        account.setBalance(account.getBalance() + sum);
+        accountRepository.save(account);
+
+        return account;
+    }
+
 }

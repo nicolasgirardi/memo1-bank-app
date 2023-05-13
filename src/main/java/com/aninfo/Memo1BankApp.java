@@ -75,6 +75,8 @@ public class Memo1BankApp {
 		return accountService.deposit(cbu, sum);
 	}
 
+	@PutMapping("/accounts/{cbu}/transaction")
+	public Account transaction(@PathVariable Long cbu,@RequestParam Double sum) {return accountService.transaction(cbu,sum);}
 	@Bean
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.SWAGGER_2)
