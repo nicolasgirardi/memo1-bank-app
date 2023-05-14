@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Optional;
+
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -42,12 +43,11 @@ public class Memo1BankApp {
 		return accountService.getAccounts();
 	}
 
-	@GetMapping("/accounts/{cbu}")
+	@GetMapping("/accounts/{cbu}/transaction")
 	public ResponseEntity<Account> getAccount(@PathVariable Long cbu) {
 		Optional<Account> accountOptional = accountService.findById(cbu);
 		return ResponseEntity.of(accountOptional);
 	}
-
 	@PutMapping("/accounts/{cbu}")
 	public ResponseEntity<Account> updateAccount(@RequestBody Account account, @PathVariable Long cbu) {
 		Optional<Account> accountOptional = accountService.findById(cbu);
