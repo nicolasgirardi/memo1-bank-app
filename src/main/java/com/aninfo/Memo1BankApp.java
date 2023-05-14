@@ -78,6 +78,14 @@ public class Memo1BankApp {
 
 	@PutMapping("/accounts/{cbu}/transaction")
 	public Account transaction(@PathVariable Long cbu,@RequestParam Double sum) {return accountService.transaction(cbu,sum);}
+
+	@GetMapping("/accounts/{cbu}/transactions/get all")
+	public Collection<Transaction> getAllTransactions(@PathVariable Long cbu) {return accountService.allTransactions(cbu);}
+	@GetMapping("/accounts/{cbu}/transactions/get one/{id}")
+	public Optional<Transaction> getATransaction(@PathVariable Long id,@RequestParam Long cbu) {return accountService.transaction(id,cbu);}
+	@GetMapping("/accounts/{cbu}/transactions/delete one/{id}")
+	public void deleteTransaction(@PathVariable Long id,@RequestParam Long cbu) {accountService.deleteTransaction(id,cbu);}
+
 	@Bean
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.SWAGGER_2)

@@ -2,7 +2,6 @@ package com.aninfo.model;
 
 import javax.persistence.*;
 
-import java.util.ArrayList;
 
 
 @Entity
