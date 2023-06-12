@@ -1,43 +1,45 @@
 package com.aninfo.model;
 
+import com.aninfo.repository.TransactionRepository;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Transaction {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private Double balance;
     private Long cbu;
+    private Double sum;
 
-    public Transaction(Double balance,Long cbu) {
-        this.balance = balance;
+    public Transaction(){}
+    public Transaction(Long cbu,Double sum){
         this.cbu = cbu;
+        this.sum = sum;
     }
 
-    public Long getCbu() {
+    public Long getId(){
+        return id;
+    }
+
+    public Long getCbu(){
         return cbu;
     }
-
-    public void setCbu(Long cbu) {
+    public Double getSum(){
+        return sum;
+    }
+    public void setCbu(Long cbu){
         this.cbu = cbu;
-    }
-
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setSum(Double sum) {
+        this.sum = sum;
     }
 }
