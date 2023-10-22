@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
 public class DepositSumIsZero extends RuntimeException {
-
     public DepositSumIsZero(String message) {
         super(message);
     }

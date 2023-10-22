@@ -12,3 +12,4 @@ public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
         config.exposeIdsFor(Account.class);
     }
 }
+
